@@ -1,5 +1,6 @@
-package com.goit.dto;
+package com.goit;
 
+import com.goit.dto.CurrencyDto;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -16,19 +17,14 @@ public class Main {
                 .serializeNulls()
                 .create();
 
-        NameDto dto = null;
+        CurrencyDto dto = null;
         try {
-            dto = gson.fromJson(new String(stream.readAllBytes()), NameDto.class);
+            dto = gson.fromJson(new String(stream.readAllBytes()), CurrencyDto.class);
         } catch (IOException e) {
             e.printStackTrace();
         }
-//        System.out.println(dto);
-//        System.out.println("================================");
-//        dto.setName(null);
         String toJson = gson.toJson(dto);
         System.out.println(toJson);
-
         }
-
     }
 }
